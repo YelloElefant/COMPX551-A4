@@ -1,0 +1,471 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:2:1-33:12
+MERGED from [androidx.wear.compose:compose-material-core:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/566bafe110e88f38b29a12a081197b3b/transformed/compose-material-core-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.wear.compose:compose-material3:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/dc879aa118076b98b85bd3669356661c/transformed/compose-material3-1.7.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.wear.compose:compose-foundation:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b2d4e5fa8d6fa53be081b98822a52340/transformed/compose-foundation-1.7.0/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.material:material-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3e766a67d2101ec447b2a494ea1c4893/transformed/material/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4bbf492ceef547a44e379c99637fcc45/transformed/material-ripple/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/fa4b46a114dde1d952d1f96d9159f7f5/transformed/animation-core/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-graphics-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/605235e719dd2a19dbeb0286af5c2aab/transformed/animation-graphics/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/94abe179a070b137e9dd3e9dd258de87/transformed/animation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/76eb938786e10b8315cdc32e1421016b/transformed/foundation-layout/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c3b8ac16094c332e4214ffb19b966fb5/transformed/foundation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3a85b7a1c6a43cddd9a0578f0d7f82a7/transformed/ui-tooling-data/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a53d055880d2daf366143f222c35d876/transformed/ui-unit/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/9e6b77e0fcbce25feb382666454cb8ff/transformed/ui-geometry/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/26d901a860deb7b16e36958cc56e01cf/transformed/ui-util/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/002bb47bc3be5632df13eeb1ff38b893/transformed/ui-text/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/f689fc2fc20ffc1f595f3ba1cc70626a/transformed/ui-tooling-preview/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ccdc6d611336bbd4b6eb1c225719623/transformed/ui-tooling/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4b63329b5afd7adc854484ea84a582ef/transformed/ui-graphics/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigationevent:navigationevent-android:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c903c31fdd1bf5ac3c46f27f43a0e572/transformed/navigationevent/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigationevent:navigationevent-compose-android:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/44fbabed0af57ac383de7487dcc4edbf/transformed/navigationevent-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/9d7d3a75247feb79b21cf305b71f9c56/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d36f648e9eec8e01f52e1f0d9dd39f6b/transformed/ui/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2c2733b2d5ebaa221f386dfaf88620cc/transformed/ui-test-manifest-1.10.4/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-wearable:20.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3370b8a7f2e3b5cbdd4f5e84709ce9ce/transformed/play-services-wearable-20.0.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c93e1bf0b485ab3192c47913f93309f4/transformed/play-services-base-18.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d4e91ce89f0645b7f0833b3aec406d1c/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4cb4ffe8c4da20dd8743e9121555d262/transformed/play-services-basement-18.9.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/f096016e10efb285acaed269250eebad/transformed/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.13.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/49b76b416c9e743f5e2af452ebb63f11/transformed/activity-ktx-1.13.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.13.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5dff98f1855c8087bc68ae3f573e80f5/transformed/activity-1.13.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-compose:1.13.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cf047b78720dd49ab1eb311f1b379598/transformed/activity-compose-1.13.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e973b0eecffbc4661b3673752fe2abd3/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.6.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d6f084b51c0de590b374dda357c2e94b/transformed/transition-1.6.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.window:window-core-android:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ab6681bd06814c69a3eb902e9be55ac/transformed/window-core/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/940de62f7db3585c84abf4169c97158b/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/6403e4e865b0428f7c53413b58d50e6a/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/12ccfbafb1e321e11a94d29cf956dfd6/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/0880f0dd133a657af45f8a9b3a8e0e46/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1520e8d0846a4df3e2e57963e005845f/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/45cc02c26518cc37f32131947b9662d8/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.graphics:graphics-shapes-android:1.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/48a5325ab8b45c040a9311ef8ff97139/transformed/graphics-shapes-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a3688c21452c3b2d531ea380276b7675/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/968e9b148cf42a6ba6d4c958f23d9ac6/transformed/runtime-annotation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-retain-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c7be8013600a9bed003a800b1230688/transformed/runtime-retain/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/aa990471d6fa5efcf3d87cbf774048c1/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a5af7cc69cf91af3bde6e14dec4469fe/transformed/savedstate/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/10e6a530f8560d5208a40eb6a2d96663/transformed/savedstate-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/9ba613dd9b337b48301aaccc44006951/transformed/runtime/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/84522dd44abd13a3f59b445ff3c4f578/transformed/runtime-saveable/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a628f71528f2891b2ac19c0a1041bcfe/transformed/lifecycle-livedata-core-ktx-2.10.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2d3d5f5b4b21ea58cd614a3a10bff2bf/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3d04b3c15b93c66a9b168ec0dd9bc20e/transformed/lifecycle-livedata-2.10.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/62c614c02ae07d705e11eb4a6311a614/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cb05a8102a073a5a174bec19d2291dcd/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c9b2dc8ce75a9b0f2aa2b8bf648d78f8/transformed/lifecycle-viewmodel-2.10.0/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5c24dc02ecc7cbcb6faf8793fab7b023/transformed/lifecycle-viewmodel/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3aeca2e69c858aadc551408ffea591f6/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/25ed1f2e977f6b1481dd88748f396e20/transformed/lifecycle-runtime-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5e91dd3fe09f881bb2f30d510728bc09/transformed/lifecycle-runtime/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/522a1b24fcc6876be05d0e37f429e005/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/afe8eaf15ee2595b03fa54652bf485e7/transformed/core-ktx-1.19.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.wear:wear-core:1.1.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/0eb03c97589186d9aa4be130c6659651/transformed/wear-core-1.1.0/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4146d85780510ce9d18fcf3652d939bf/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/93beb74413a118b363337ee13feecb2b/transformed/core-viewtree-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/dfea9d909594c2de666c9220927d3a25/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/fb0e23e7e1c4cfb59db196ba63dd431c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/14e2c4026ac3fec3a926bd8f1909ff50/transformed/tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5f9e199e38ed60f17a58cd2225cfa3f7/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1a32a3784d82159c7fe6da5542c3ff32/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b63856b748ee7bbb9a84d467b5e09642/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/6ea0597d7160ac3811319dc5390e52ff/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/273e107ad40d1c3d63bdbc4bdd65f5cd/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:2:11-69
+uses-feature#android.hardware.type.watch
+ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:4:5-64
+	android:name
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:4:19-61
+application
+ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:6:5-31:19
+INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:6:5-31:19
+MERGED from [androidx.wear.compose:compose-foundation:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b2d4e5fa8d6fa53be081b98822a52340/transformed/compose-foundation-1.7.0/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.wear.compose:compose-foundation:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b2d4e5fa8d6fa53be081b98822a52340/transformed/compose-foundation-1.7.0/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ccdc6d611336bbd4b6eb1c225719623/transformed/ui-tooling/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ccdc6d611336bbd4b6eb1c225719623/transformed/ui-tooling/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2c2733b2d5ebaa221f386dfaf88620cc/transformed/ui-test-manifest-1.10.4/AndroidManifest.xml:22:5-27:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2c2733b2d5ebaa221f386dfaf88620cc/transformed/ui-test-manifest-1.10.4/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-wearable:20.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3370b8a7f2e3b5cbdd4f5e84709ce9ce/transformed/play-services-wearable-20.0.1/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-wearable:20.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3370b8a7f2e3b5cbdd4f5e84709ce9ce/transformed/play-services-wearable-20.0.1/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c93e1bf0b485ab3192c47913f93309f4/transformed/play-services-base-18.5.0/AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c93e1bf0b485ab3192c47913f93309f4/transformed/play-services-base-18.5.0/AndroidManifest.xml:4:5-6:19
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d4e91ce89f0645b7f0833b3aec406d1c/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d4e91ce89f0645b7f0833b3aec406d1c/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:4:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4cb4ffe8c4da20dd8743e9121555d262/transformed/play-services-basement-18.9.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4cb4ffe8c4da20dd8743e9121555d262/transformed/play-services-basement-18.9.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cb05a8102a073a5a174bec19d2291dcd/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cb05a8102a073a5a174bec19d2291dcd/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.wear:wear-core:1.1.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/0eb03c97589186d9aa4be130c6659651/transformed/wear-core-1.1.0/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.wear:wear-core:1.1.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/0eb03c97589186d9aa4be130c6659651/transformed/wear-core-1.1.0/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/fb0e23e7e1c4cfb59db196ba63dd431c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/fb0e23e7e1c4cfb59db196ba63dd431c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5f9e199e38ed60f17a58cd2225cfa3f7/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5f9e199e38ed60f17a58cd2225cfa3f7/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:9:9-41
+	android:icon
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:8:9-43
+	android:allowBackup
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:7:9-35
+	android:theme
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:11:9-59
+uses-library#com.google.android.wearable
+ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:13:9-15:40
+	android:required
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:14:13-55
+meta-data#com.google.android.wearable.standalone
+ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:17:9-19:36
+	android:value
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:19:13-33
+	android:name
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:18:13-66
+activity#com.yelloelefant.compx551a4.wear.presentation.MainActivity
+ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:21:9-30:20
+	android:exported
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:23:13-36
+	android:theme
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:25:13-63
+	android:taskAffinity
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:24:13-36
+	android:name
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:22:13-54
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:26:13-29:29
+action#android.intent.action.MAIN
+ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:27:17-69
+	android:name
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:27:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:28:17-77
+	android:name
+		ADDED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml:28:27-74
+uses-sdk
+INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml
+INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml
+MERGED from [androidx.wear.compose:compose-material-core:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/566bafe110e88f38b29a12a081197b3b/transformed/compose-material-core-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.wear.compose:compose-material-core:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/566bafe110e88f38b29a12a081197b3b/transformed/compose-material-core-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.wear.compose:compose-material3:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/dc879aa118076b98b85bd3669356661c/transformed/compose-material3-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.wear.compose:compose-material3:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/dc879aa118076b98b85bd3669356661c/transformed/compose-material3-1.7.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.wear.compose:compose-foundation:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b2d4e5fa8d6fa53be081b98822a52340/transformed/compose-foundation-1.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.wear.compose:compose-foundation:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b2d4e5fa8d6fa53be081b98822a52340/transformed/compose-foundation-1.7.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3e766a67d2101ec447b2a494ea1c4893/transformed/material/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3e766a67d2101ec447b2a494ea1c4893/transformed/material/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4bbf492ceef547a44e379c99637fcc45/transformed/material-ripple/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4bbf492ceef547a44e379c99637fcc45/transformed/material-ripple/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/fa4b46a114dde1d952d1f96d9159f7f5/transformed/animation-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/fa4b46a114dde1d952d1f96d9159f7f5/transformed/animation-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-graphics-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/605235e719dd2a19dbeb0286af5c2aab/transformed/animation-graphics/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-graphics-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/605235e719dd2a19dbeb0286af5c2aab/transformed/animation-graphics/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/94abe179a070b137e9dd3e9dd258de87/transformed/animation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/94abe179a070b137e9dd3e9dd258de87/transformed/animation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/76eb938786e10b8315cdc32e1421016b/transformed/foundation-layout/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/76eb938786e10b8315cdc32e1421016b/transformed/foundation-layout/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c3b8ac16094c332e4214ffb19b966fb5/transformed/foundation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c3b8ac16094c332e4214ffb19b966fb5/transformed/foundation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3a85b7a1c6a43cddd9a0578f0d7f82a7/transformed/ui-tooling-data/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3a85b7a1c6a43cddd9a0578f0d7f82a7/transformed/ui-tooling-data/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a53d055880d2daf366143f222c35d876/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a53d055880d2daf366143f222c35d876/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/9e6b77e0fcbce25feb382666454cb8ff/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/9e6b77e0fcbce25feb382666454cb8ff/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/26d901a860deb7b16e36958cc56e01cf/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/26d901a860deb7b16e36958cc56e01cf/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/002bb47bc3be5632df13eeb1ff38b893/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/002bb47bc3be5632df13eeb1ff38b893/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/f689fc2fc20ffc1f595f3ba1cc70626a/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/f689fc2fc20ffc1f595f3ba1cc70626a/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ccdc6d611336bbd4b6eb1c225719623/transformed/ui-tooling/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ccdc6d611336bbd4b6eb1c225719623/transformed/ui-tooling/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4b63329b5afd7adc854484ea84a582ef/transformed/ui-graphics/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4b63329b5afd7adc854484ea84a582ef/transformed/ui-graphics/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-android:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c903c31fdd1bf5ac3c46f27f43a0e572/transformed/navigationevent/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-android:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c903c31fdd1bf5ac3c46f27f43a0e572/transformed/navigationevent/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-compose-android:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/44fbabed0af57ac383de7487dcc4edbf/transformed/navigationevent-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-compose-android:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/44fbabed0af57ac383de7487dcc4edbf/transformed/navigationevent-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/9d7d3a75247feb79b21cf305b71f9c56/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/9d7d3a75247feb79b21cf305b71f9c56/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d36f648e9eec8e01f52e1f0d9dd39f6b/transformed/ui/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d36f648e9eec8e01f52e1f0d9dd39f6b/transformed/ui/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2c2733b2d5ebaa221f386dfaf88620cc/transformed/ui-test-manifest-1.10.4/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2c2733b2d5ebaa221f386dfaf88620cc/transformed/ui-test-manifest-1.10.4/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-wearable:20.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3370b8a7f2e3b5cbdd4f5e84709ce9ce/transformed/play-services-wearable-20.0.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-wearable:20.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3370b8a7f2e3b5cbdd4f5e84709ce9ce/transformed/play-services-wearable-20.0.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c93e1bf0b485ab3192c47913f93309f4/transformed/play-services-base-18.5.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-base:18.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c93e1bf0b485ab3192c47913f93309f4/transformed/play-services-base-18.5.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d4e91ce89f0645b7f0833b3aec406d1c/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d4e91ce89f0645b7f0833b3aec406d1c/transformed/play-services-tasks-18.2.0/AndroidManifest.xml:3:5-44
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4cb4ffe8c4da20dd8743e9121555d262/transformed/play-services-basement-18.9.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.9.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4cb4ffe8c4da20dd8743e9121555d262/transformed/play-services-basement-18.9.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/f096016e10efb285acaed269250eebad/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/f096016e10efb285acaed269250eebad/transformed/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.13.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/49b76b416c9e743f5e2af452ebb63f11/transformed/activity-ktx-1.13.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.13.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/49b76b416c9e743f5e2af452ebb63f11/transformed/activity-ktx-1.13.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.13.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5dff98f1855c8087bc68ae3f573e80f5/transformed/activity-1.13.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.13.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5dff98f1855c8087bc68ae3f573e80f5/transformed/activity-1.13.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.13.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cf047b78720dd49ab1eb311f1b379598/transformed/activity-compose-1.13.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.13.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cf047b78720dd49ab1eb311f1b379598/transformed/activity-compose-1.13.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e973b0eecffbc4661b3673752fe2abd3/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e973b0eecffbc4661b3673752fe2abd3/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.6.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d6f084b51c0de590b374dda357c2e94b/transformed/transition-1.6.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.transition:transition:1.6.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/d6f084b51c0de590b374dda357c2e94b/transformed/transition-1.6.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window:window-core-android:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ab6681bd06814c69a3eb902e9be55ac/transformed/window-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window:window-core-android:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ab6681bd06814c69a3eb902e9be55ac/transformed/window-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/940de62f7db3585c84abf4169c97158b/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/940de62f7db3585c84abf4169c97158b/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/6403e4e865b0428f7c53413b58d50e6a/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/6403e4e865b0428f7c53413b58d50e6a/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/12ccfbafb1e321e11a94d29cf956dfd6/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/12ccfbafb1e321e11a94d29cf956dfd6/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/0880f0dd133a657af45f8a9b3a8e0e46/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/0880f0dd133a657af45f8a9b3a8e0e46/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1520e8d0846a4df3e2e57963e005845f/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1520e8d0846a4df3e2e57963e005845f/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/45cc02c26518cc37f32131947b9662d8/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/45cc02c26518cc37f32131947b9662d8/transformed/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.graphics:graphics-shapes-android:1.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/48a5325ab8b45c040a9311ef8ff97139/transformed/graphics-shapes-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-shapes-android:1.0.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/48a5325ab8b45c040a9311ef8ff97139/transformed/graphics-shapes-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a3688c21452c3b2d531ea380276b7675/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a3688c21452c3b2d531ea380276b7675/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/968e9b148cf42a6ba6d4c958f23d9ac6/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/968e9b148cf42a6ba6d4c958f23d9ac6/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-retain-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c7be8013600a9bed003a800b1230688/transformed/runtime-retain/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-retain-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c7be8013600a9bed003a800b1230688/transformed/runtime-retain/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/aa990471d6fa5efcf3d87cbf774048c1/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/aa990471d6fa5efcf3d87cbf774048c1/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a5af7cc69cf91af3bde6e14dec4469fe/transformed/savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a5af7cc69cf91af3bde6e14dec4469fe/transformed/savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/10e6a530f8560d5208a40eb6a2d96663/transformed/savedstate-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/10e6a530f8560d5208a40eb6a2d96663/transformed/savedstate-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/9ba613dd9b337b48301aaccc44006951/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/9ba613dd9b337b48301aaccc44006951/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/84522dd44abd13a3f59b445ff3c4f578/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/84522dd44abd13a3f59b445ff3c4f578/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a628f71528f2891b2ac19c0a1041bcfe/transformed/lifecycle-livedata-core-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/a628f71528f2891b2ac19c0a1041bcfe/transformed/lifecycle-livedata-core-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2d3d5f5b4b21ea58cd614a3a10bff2bf/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2d3d5f5b4b21ea58cd614a3a10bff2bf/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3d04b3c15b93c66a9b168ec0dd9bc20e/transformed/lifecycle-livedata-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3d04b3c15b93c66a9b168ec0dd9bc20e/transformed/lifecycle-livedata-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/62c614c02ae07d705e11eb4a6311a614/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/62c614c02ae07d705e11eb4a6311a614/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cb05a8102a073a5a174bec19d2291dcd/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cb05a8102a073a5a174bec19d2291dcd/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c9b2dc8ce75a9b0f2aa2b8bf648d78f8/transformed/lifecycle-viewmodel-2.10.0/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c9b2dc8ce75a9b0f2aa2b8bf648d78f8/transformed/lifecycle-viewmodel-2.10.0/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5c24dc02ecc7cbcb6faf8793fab7b023/transformed/lifecycle-viewmodel/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5c24dc02ecc7cbcb6faf8793fab7b023/transformed/lifecycle-viewmodel/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3aeca2e69c858aadc551408ffea591f6/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/3aeca2e69c858aadc551408ffea591f6/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/25ed1f2e977f6b1481dd88748f396e20/transformed/lifecycle-runtime-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/25ed1f2e977f6b1481dd88748f396e20/transformed/lifecycle-runtime-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5e91dd3fe09f881bb2f30d510728bc09/transformed/lifecycle-runtime/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5e91dd3fe09f881bb2f30d510728bc09/transformed/lifecycle-runtime/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/522a1b24fcc6876be05d0e37f429e005/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/522a1b24fcc6876be05d0e37f429e005/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/afe8eaf15ee2595b03fa54652bf485e7/transformed/core-ktx-1.19.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/afe8eaf15ee2595b03fa54652bf485e7/transformed/core-ktx-1.19.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.wear:wear-core:1.1.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/0eb03c97589186d9aa4be130c6659651/transformed/wear-core-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.wear:wear-core:1.1.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/0eb03c97589186d9aa4be130c6659651/transformed/wear-core-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4146d85780510ce9d18fcf3652d939bf/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4146d85780510ce9d18fcf3652d939bf/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/93beb74413a118b363337ee13feecb2b/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/93beb74413a118b363337ee13feecb2b/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/dfea9d909594c2de666c9220927d3a25/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/dfea9d909594c2de666c9220927d3a25/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/fb0e23e7e1c4cfb59db196ba63dd431c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/fb0e23e7e1c4cfb59db196ba63dd431c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/14e2c4026ac3fec3a926bd8f1909ff50/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/14e2c4026ac3fec3a926bd8f1909ff50/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5f9e199e38ed60f17a58cd2225cfa3f7/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5f9e199e38ed60f17a58cd2225cfa3f7/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1a32a3784d82159c7fe6da5542c3ff32/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1a32a3784d82159c7fe6da5542c3ff32/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b63856b748ee7bbb9a84d467b5e09642/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b63856b748ee7bbb9a84d467b5e09642/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/6ea0597d7160ac3811319dc5390e52ff/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/6ea0597d7160ac3811319dc5390e52ff/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/273e107ad40d1c3d63bdbc4bdd65f5cd/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/273e107ad40d1c3d63bdbc4bdd65f5cd/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/AndroidManifest.xml
+uses-library#wear-sdk
+ADDED from [androidx.wear.compose:compose-foundation:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b2d4e5fa8d6fa53be081b98822a52340/transformed/compose-foundation-1.7.0/AndroidManifest.xml:23:9-25:40
+MERGED from [androidx.wear:wear-core:1.1.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/0eb03c97589186d9aa4be130c6659651/transformed/wear-core-1.1.0/AndroidManifest.xml:23:9-25:40
+MERGED from [androidx.wear:wear-core:1.1.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/0eb03c97589186d9aa4be130c6659651/transformed/wear-core-1.1.0/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.wear.compose:compose-foundation:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b2d4e5fa8d6fa53be081b98822a52340/transformed/compose-foundation-1.7.0/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.wear.compose:compose-foundation:1.7.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/b2d4e5fa8d6fa53be081b98822a52340/transformed/compose-foundation-1.7.0/AndroidManifest.xml:24:13-36
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ccdc6d611336bbd4b6eb1c225719623/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ccdc6d611336bbd4b6eb1c225719623/transformed/ui-tooling/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/5ccdc6d611336bbd4b6eb1c225719623/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+activity#androidx.activity.ComponentActivity
+ADDED from [androidx.compose.ui:ui-test-manifest:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2c2733b2d5ebaa221f386dfaf88620cc/transformed/ui-test-manifest-1.10.4/AndroidManifest.xml:23:9-26:79
+	android:exported
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2c2733b2d5ebaa221f386dfaf88620cc/transformed/ui-test-manifest-1.10.4/AndroidManifest.xml:25:13-36
+	android:theme
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2c2733b2d5ebaa221f386dfaf88620cc/transformed/ui-test-manifest-1.10.4/AndroidManifest.xml:26:13-76
+	android:name
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.10.4] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/2c2733b2d5ebaa221f386dfaf88620cc/transformed/ui-test-manifest-1.10.4/AndroidManifest.xml:24:13-63
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c93e1bf0b485ab3192c47913f93309f4/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:9-173
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c93e1bf0b485ab3192c47913f93309f4/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c93e1bf0b485ab3192c47913f93309f4/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/c93e1bf0b485ab3192c47913f93309f4/transformed/play-services-base-18.5.0/AndroidManifest.xml:5:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.9.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4cb4ffe8c4da20dd8743e9121555d262/transformed/play-services-basement-18.9.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.9.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4cb4ffe8c4da20dd8743e9121555d262/transformed/play-services-basement-18.9.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.9.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/4cb4ffe8c4da20dd8743e9121555d262/transformed/play-services-basement-18.9.0/AndroidManifest.xml:22:13-58
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:24:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:26:9-28:40
+	android:required
+		ADDED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.window:window:1.5.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/181014eacd9c054a2aefae0f5f067c3d/transformed/window-1.5.0/AndroidManifest.xml:27:13-51
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cb05a8102a073a5a174bec19d2291dcd/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cb05a8102a073a5a174bec19d2291dcd/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/fb0e23e7e1c4cfb59db196ba63dd431c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/fb0e23e7e1c4cfb59db196ba63dd431c/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1c4f46d0643e3b4ccacd07d5ebafeae4/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:23:9-81
+permission#com.yelloelefant.compx551a4.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:26:22-94
+uses-permission#com.yelloelefant.compx551a4.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.19.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/e1e024c9af9db5a750d763b20e44396b/transformed/core-1.19.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cb05a8102a073a5a174bec19d2291dcd/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cb05a8102a073a5a174bec19d2291dcd/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/cb05a8102a073a5a174bec19d2291dcd/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/yelloelefant/.gradle/caches/9.5.0/transforms/1409d9db5d7ea3f591ec2b07b1e44752/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92

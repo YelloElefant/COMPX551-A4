@@ -1,0 +1,8 @@
+com.yelloelefant.compx551a4.wear-pngs-0 /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/build/generated/res/pngs/debug
+com.yelloelefant.compx551a4.wear-updated_navigation_xml-1 /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/build/generated/updated_navigation_xml/debug
+com.yelloelefant.compx551a4.wear-packageDebugResources-2 /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.yelloelefant.compx551a4.wear-packageDebugResources-3 /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.yelloelefant.compx551a4.wear-debug-4 /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/build/intermediates/merged_res/debug/mergeDebugResources
+com.yelloelefant.compx551a4.wear-debug-5 /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/debug/res
+com.yelloelefant.compx551a4.wear-main-6 /Users/yelloelefant/AndroidStudioProjects/COMPX551A4/wear/src/main/res
+gradleHome-0 /Users/yelloelefant/.gradle
