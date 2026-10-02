@@ -26,21 +26,21 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.yelloelefant.compx551a4.sensor.AccSample
+import com.yelloelefant.compx551a4.data.AccelerometerData
 import java.util.Locale
 import kotlin.math.pow
 import kotlin.math.sqrt
 
 @Composable
 fun LiveAccChartCard(
-    accHistory: List<AccSample>,
+    accHistory: List<AccelerometerData>,
     modifier: Modifier = Modifier,
 ) {
     val samples = accHistory.takeLast(80)
     val latestSample = samples.lastOrNull()
 
     val latestMag = if (latestSample != null) {
-        sqrt(latestSample.x.toDouble().pow(2) + latestSample.y.toDouble().pow(2) + latestSample.z.toDouble().pow(2)) / 1000.0
+        sqrt(latestSample.x.toDouble().pow(2) + latestSample.y.toDouble().pow(2) + latestSample.z.toDouble().pow(2))
     } else {
         1.0
     }
@@ -99,7 +99,7 @@ fun LiveAccChartCard(
                         val pathZ = Path()
                         val pathMag = Path()
 
-                        val scaleY = (height / 2f) / 2000f
+                        val scaleY = (height / 2f) / 2.0f // g-force scale
 
                         samples.forEachIndexed { i, sample ->
                             val xPos = i * stepX
@@ -107,9 +107,9 @@ fun LiveAccChartCard(
                             val yY = centerY - (sample.y * scaleY).coerceIn(-centerY, centerY)
                             val yZ = centerY - (sample.z * scaleY).coerceIn(-centerY, centerY)
 
-                            val magG = sqrt(sample.x.toDouble().pow(2) + sample.y.toDouble().pow(2) + sample.z.toDouble().pow(2)) / 1000.0
-                            val magDeltaMilliG = (magG - 1.0) * 1000.0
-                            val magOffset = (magDeltaMilliG * scaleY).coerceIn((-centerY).toDouble(), centerY.toDouble()).toFloat()
+                            val magG = sqrt(sample.x.toDouble().pow(2) + sample.y.toDouble().pow(2) + sample.z.toDouble().pow(2))
+                            val magDelta = (magG - 1.0)
+                            val magOffset = (magDelta * scaleY).coerceIn((-centerY).toDouble(), centerY.toDouble()).toFloat()
                             val yMag = centerY - magOffset
 
                             if (i == 0) {

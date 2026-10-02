@@ -26,11 +26,11 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.yelloelefant.compx551a4.sensor.HrSample
+import com.yelloelefant.compx551a4.data.HeartRateData
 
 @Composable
 fun LiveHrChartCard(
-    hrHistory: List<HrSample>,
+    hrHistory: List<HeartRateData>,
     modifier: Modifier = Modifier,
 ) {
     val samples = hrHistory.takeLast(60)

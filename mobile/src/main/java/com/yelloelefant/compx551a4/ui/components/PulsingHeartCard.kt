@@ -35,16 +35,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.yelloelefant.compx551a4.sensor.HrSample
+import com.yelloelefant.compx551a4.data.HeartRateData
 
 @Composable
 fun PulsingHeartCard(
-    hrSample: HrSample?,
+    heartRateData: HeartRateData?,
+    isConnected: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val bpm = hrSample?.bpm ?: 0
-    val isConnected = hrSample != null
-    val rrMs = hrSample?.rrMs?.firstOrNull() ?: 0
+    val bpm = heartRateData?.bpm ?: 0
+    val rrText = heartRateData?.rrIntervals?.joinToString(", ") { "$it ms" } ?: "--"
 
     val pulseDurationMs = if (bpm > 30) (60000 / bpm).coerceIn(300, 1500) else 1000
 
@@ -75,32 +75,21 @@ fun PulsingHeartCard(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                if (hrSample?.contact == true) {
-                    Box(
-                        modifier = Modifier
-                            .background(Color(0xFF2E7D32).copy(alpha = 0.2f), RoundedCornerShape(12.dp))
-                            .padding(horizontal = 10.dp, vertical = 4.dp)
-                    ) {
-                        Text(
-                            text = "● Strap Contact OK",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = Color(0xFF2E7D32),
-                            fontWeight = FontWeight.Bold
+                Box(
+                    modifier = Modifier
+                        .background(
+                            if (isConnected) Color(0xFF2E7D32).copy(alpha = 0.2f)
+                            else Color(0xFFD32F2F).copy(alpha = 0.2f),
+                            RoundedCornerShape(12.dp)
                         )
-                    }
-                } else {
-                    Box(
-                        modifier = Modifier
-                            .background(Color(0xFFD32F2F).copy(alpha = 0.2f), RoundedCornerShape(12.dp))
-                            .padding(horizontal = 10.dp, vertical = 4.dp)
-                    ) {
-                        Text(
-                            text = if (isConnected) "⚠️ Check Strap Contact" else "Disconnected",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = Color(0xFFD32F2F),
-                            fontWeight = FontWeight.Bold
-                        )
-                    }
+                        .padding(horizontal = 10.dp, vertical = 4.dp)
+                ) {
+                    Text(
+                        text = if (isConnected) "● Sensor Connected" else "Disconnected",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = if (isConnected) Color(0xFF2E7D32) else Color(0xFFD32F2F),
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
 
@@ -155,25 +144,12 @@ fun PulsingHeartCard(
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(
-                        text = if (isConnected) "$rrMs ms" else "--",
+                        text = if (isConnected) rrText else "--",
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "RR Interval",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(
-                        text = if (isConnected) "${hrSample?.timestampMs ?: 0}" else "--",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Text(
-                        text = "Timestamp",
+                        text = "RR Intervals",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
