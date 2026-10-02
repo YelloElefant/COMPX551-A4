@@ -95,6 +95,42 @@ fun SessionControlsCard(
                     }
                 }
             }
+            if (liveStats.sampleCount > 0) {
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+                Text(
+                    text = "Processed Session Statistics",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                Text(
+                    text = "Smoothed HR: ${liveStats.latestBpm} BPM",
+                    fontWeight = FontWeight.Bold
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    Text("Min: ${liveStats.minBpm}")
+                    Text("Avg: ${liveStats.avgBpm}")
+                    Text("Max: ${liveStats.maxBpm}")
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Text(
+                    text = "Samples processed: ${liveStats.sampleCount}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
         }
     }
 }

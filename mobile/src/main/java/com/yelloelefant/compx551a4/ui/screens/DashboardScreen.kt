@@ -43,6 +43,7 @@ import com.yelloelefant.compx551a4.ui.components.LiveAccChartCard
 import com.yelloelefant.compx551a4.ui.components.LiveHrChartCard
 import com.yelloelefant.compx551a4.ui.components.PulsingHeartCard
 import com.yelloelefant.compx551a4.viewmodel.MainViewModel
+import com.yelloelefant.compx551a4.ui.components.SessionControlsCard
 
 @Composable
 fun DashboardScreen(
@@ -55,6 +56,8 @@ fun DashboardScreen(
     val accChartHistory by viewModel.accChartHistory.collectAsState()
     val isScanning by viewModel.isScanning.collectAsState()
     val discoveredDevices by viewModel.discoveredDevices.collectAsState()
+    val recordingState by viewModel.recordingState.collectAsState()
+    val liveStats by viewModel.liveStats.collectAsState()
 
     var deviceIdInput by remember { mutableStateOf("C6230415") }
 
@@ -168,7 +171,12 @@ fun DashboardScreen(
                     }
                 }
             }
-
+            SessionControlsCard(
+                recordingState = recordingState,
+                liveStats = liveStats,
+                onStart = { viewModel.startLiveSession() },
+                onStop = { viewModel.stopLiveSession() }
+            )
             // Live Vitals
             PulsingHeartCard(heartRateData = heartRateData, isConnected = isConnected)
 
