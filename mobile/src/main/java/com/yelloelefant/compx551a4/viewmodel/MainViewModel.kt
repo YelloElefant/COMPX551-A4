@@ -1,5 +1,8 @@
 package com.yelloelefant.compx551a4.viewmodel
 
+import com.yelloelefant.compx551a4.processing.SignalProcessor
+import com.yelloelefant.compx551a4.sensor.HrSample
+import com.yelloelefant.compx551a4.sensor.AccSample
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,6 +15,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlin.math.sqrt
+import kotlinx.coroutines.delay
 
 enum class SessionRecordingState {
     IDLE, RECORDING
@@ -30,6 +35,7 @@ data class LiveStats(
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val sensorManager = PolarSensorManager(application)
+    private val signalProcessor = SignalProcessor()
 
     val isConnected: StateFlow<Boolean> = sensorManager.isConnected
     val heartRateData: StateFlow<HeartRateData?> = sensorManager.heartRateData
@@ -54,11 +60,32 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val discoveredDevices: StateFlow<List<PolarDeviceInfo>> = _discoveredDevices.asStateFlow()
 
     private var scanJob: Job? = null
+    private var sessionTimerJob: Job? = null
+    private val sessionHeartRates = mutableListOf<Int>()
 
     init {
         viewModelScope.launch {
             sensorManager.heartRateData.collect { hr ->
                 if (hr != null) {
+                    if (_recordingState.value == SessionRecordingState.RECORDING) {
+                        val processedHr = signalProcessor.processHrSample(
+                            HrSample(
+                                bpm = hr.bpm,
+                                rrMs = hr.rrIntervals,
+                                contact = true,
+                                timestampMs = hr.timestamp
+                            )
+                        )
+                        sessionHeartRates.add(processedHr.smoothedBpm)
+
+                        _liveStats.value = _liveStats.value.copy(
+                            sampleCount = sessionHeartRates.size,
+                            avgBpm = sessionHeartRates.average().toInt(),
+                            minBpm = sessionHeartRates.minOrNull() ?: 0,
+                            maxBpm = sessionHeartRates.maxOrNull() ?: 0,
+                            latestBpm = processedHr.smoothedBpm
+                        )
+                    }
                     val currentList = _hrChartHistory.value.toMutableList()
                     currentList.add(hr)
                     if (currentList.size > 60) currentList.removeAt(0)
@@ -69,6 +96,19 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             sensorManager.accelerometerData.collect { acc ->
                 if (acc != null) {
+                    if (_recordingState.value == SessionRecordingState.RECORDING) {
+                        val processedAcc = signalProcessor.processAccSample(
+                            AccSample(
+                                x = (acc.x * 1000).toInt(),
+                                y = (acc.y * 1000).toInt(),
+                                z = (acc.z * 1000).toInt()
+                            )
+                        )
+
+                        _liveStats.value = _liveStats.value.copy(
+                            latestMagnitudeG = processedAcc.magnitudeG
+                        )
+                    }
                     val currentList = _accChartHistory.value.toMutableList()
                     currentList.add(acc)
                     if (currentList.size > 80) currentList.removeAt(0)
@@ -114,11 +154,23 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun startLiveSession() {
+        sessionHeartRates.clear()
+        _liveStats.value = LiveStats()
         _recordingState.value = SessionRecordingState.RECORDING
+        sessionTimerJob?.cancel()
+        sessionTimerJob = viewModelScope.launch {
+            while (_recordingState.value == SessionRecordingState.RECORDING) {
+                delay(1000)
+                _liveStats.value = _liveStats.value.copy(
+                    durationSeconds = _liveStats.value.durationSeconds + 1
+                )
+            }
+        }
     }
 
     fun stopLiveSession() {
         _recordingState.value = SessionRecordingState.IDLE
+        sessionTimerJob?.cancel()
     }
 
     override fun onCleared() {
