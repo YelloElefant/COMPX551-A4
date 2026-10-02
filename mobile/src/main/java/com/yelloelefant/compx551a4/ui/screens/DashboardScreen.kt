@@ -15,8 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.yelloelefant.compx551a4.ui.components.BluetoothPermissionHandler
 import com.yelloelefant.compx551a4.ui.components.DeviceConnectionCard
-import com.yelloelefant.compx551a4.ui.components.HrZoneDistributionCard
-import com.yelloelefant.compx551a4.ui.components.HrvGaugeCard
 import com.yelloelefant.compx551a4.ui.components.LiveAccChartCard
 import com.yelloelefant.compx551a4.ui.components.LiveHrChartCard
 import com.yelloelefant.compx551a4.ui.components.PulsingHeartCard
@@ -73,10 +71,8 @@ fun DashboardScreen(
             SessionControlsCard(
                 recordingState = recordingState,
                 liveStats = liveStats,
-                onStart = { viewModel.startSession() },
-                onPause = { viewModel.pauseSession() },
-                onResume = { viewModel.resumeSession() },
-                onStopAndSave = { title, notes -> viewModel.stopAndSaveSession(title, notes) }
+                onStart = { viewModel.startLiveSession() },
+                onStop = { viewModel.stopLiveSession() }
             )
 
             // Live Pulsing Heart Rate & Vitals Card
@@ -87,15 +83,6 @@ fun DashboardScreen(
 
             // Live 3-Axis Accelerometer Motion Chart
             LiveAccChartCard(accHistory = accChartHistory)
-
-            // Live Heart Rate Variability (HRV) Arc Gauge
-            HrvGaugeCard(
-                rmssd = liveHrSample?.rmssd ?: 0.0,
-                avgRmssd = liveStats.avgRmssd
-            )
-
-            // Live HR Zone Distribution Breakdown
-            HrZoneDistributionCard(zonePercentages = liveStats.zonePercentages)
 
             Spacer(modifier = Modifier.height(24.dp))
         }

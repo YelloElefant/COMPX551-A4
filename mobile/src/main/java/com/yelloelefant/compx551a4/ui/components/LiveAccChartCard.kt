@@ -26,18 +26,24 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.yelloelefant.compx551a4.processing.MotionCategory
-import com.yelloelefant.compx551a4.processing.ProcessedAccSample
+import com.yelloelefant.compx551a4.sensor.AccSample
+import java.util.Locale
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 @Composable
 fun LiveAccChartCard(
-    accHistory: List<ProcessedAccSample>,
+    accHistory: List<AccSample>,
     modifier: Modifier = Modifier,
 ) {
     val samples = accHistory.takeLast(80)
     val latestSample = samples.lastOrNull()
-    val magG = latestSample?.magnitudeG ?: 1.0
-    val category = latestSample?.motionCategory ?: MotionCategory.STILL
+
+    val latestMag = if (latestSample != null) {
+        sqrt(latestSample.x.toDouble().pow(2) + latestSample.y.toDouble().pow(2) + latestSample.z.toDouble().pow(2)) / 1000.0
+    } else {
+        1.0
+    }
 
     Card(
         modifier = modifier.fillMaxWidth(),
@@ -45,7 +51,6 @@ fun LiveAccChartCard(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            // Header Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -58,30 +63,15 @@ fun LiveAccChartCard(
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "50Hz Stream • Vector Magnitude (|Mag| = √(X² + Y² + Z²))",
+                        text = "50Hz Stream • Vector Magnitude",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-
-                // Motion Category Chip
-                Box(
-                    modifier = Modifier
-                        .background(category.color.copy(alpha = 0.2f), RoundedCornerShape(12.dp))
-                        .padding(horizontal = 10.dp, vertical = 4.dp)
-                ) {
-                    Text(
-                        text = category.label,
-                        style = MaterialTheme.typography.labelSmall,
-                        color = category.color,
-                        fontWeight = FontWeight.Bold
                     )
                 }
             }
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Canvas Chart Area for X, Y, Z, and Magnitude
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -92,9 +82,8 @@ fun LiveAccChartCard(
                 Canvas(modifier = Modifier.fillMaxWidth().height(134.dp)) {
                     val width = size.width
                     val height = size.height
-
-                    // Center line (0 g offset / baseline)
                     val centerY = height / 2f
+
                     drawLine(
                         color = Color.Gray.copy(alpha = 0.3f),
                         start = Offset(0f, centerY),
@@ -110,7 +99,6 @@ fun LiveAccChartCard(
                         val pathZ = Path()
                         val pathMag = Path()
 
-                        // Scale factor: ±2000 milli-g maps to height
                         val scaleY = (height / 2f) / 2000f
 
                         samples.forEachIndexed { i, sample ->
@@ -119,8 +107,8 @@ fun LiveAccChartCard(
                             val yY = centerY - (sample.y * scaleY).coerceIn(-centerY, centerY)
                             val yZ = centerY - (sample.z * scaleY).coerceIn(-centerY, centerY)
 
-                            // MagG baseline subtracted by 1.0g gravity
-                            val magDeltaMilliG = (sample.magnitudeG - 1.0) * 1000.0
+                            val magG = sqrt(sample.x.toDouble().pow(2) + sample.y.toDouble().pow(2) + sample.z.toDouble().pow(2)) / 1000.0
+                            val magDeltaMilliG = (magG - 1.0) * 1000.0
                             val magOffset = (magDeltaMilliG * scaleY).coerceIn((-centerY).toDouble(), centerY.toDouble()).toFloat()
                             val yMag = centerY - magOffset
 
@@ -137,12 +125,9 @@ fun LiveAccChartCard(
                             }
                         }
 
-                        // Draw X (Cyan), Y (Green), Z (Blue)
                         drawPath(pathX, Color(0xFF00BCD4), style = Stroke(width = 1.5.dp.toPx()))
                         drawPath(pathY, Color(0xFF4CAF50), style = Stroke(width = 1.5.dp.toPx()))
                         drawPath(pathZ, Color(0xFF2196F3), style = Stroke(width = 1.5.dp.toPx()))
-
-                        // Draw Magnitude (Gold/Yellow) bold
                         drawPath(pathMag, Color(0xFFFFC107), style = Stroke(width = 2.5.dp.toPx()))
                     }
                 }
@@ -150,13 +135,11 @@ fun LiveAccChartCard(
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // Footer Legend & Readout
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Legend
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     LegendItem("X", Color(0xFF00BCD4))
                     Spacer(modifier = Modifier.width(8.dp))
@@ -168,10 +151,10 @@ fun LiveAccChartCard(
                 }
 
                 Text(
-                    text = String.format("%.2f g", magG),
+                    text = String.format(Locale.getDefault(), "%.2f g", latestMag),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = category.color
+                    color = Color(0xFFFFC107)
                 )
             }
         }

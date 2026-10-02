@@ -23,25 +23,21 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.yelloelefant.compx551a4.processing.HrZone
-import com.yelloelefant.compx551a4.processing.ProcessedHrSample
+import com.yelloelefant.compx551a4.sensor.HrSample
 
 @Composable
 fun LiveHrChartCard(
-    hrHistory: List<ProcessedHrSample>,
+    hrHistory: List<HrSample>,
     modifier: Modifier = Modifier,
 ) {
     val samples = hrHistory.takeLast(60)
     val latestSample = samples.lastOrNull()
-    val activeZone = latestSample?.zone ?: HrZone.REST
 
-    val minBpm = (samples.minOfOrNull { it.smoothedBpm } ?: 60).coerceAtMost(50)
-    val maxBpm = (samples.maxOfOrNull { it.smoothedBpm } ?: 140).coerceAtLeast(160)
+    val minBpm = (samples.minOfOrNull { it.bpm } ?: 60).coerceAtMost(50)
+    val maxBpm = (samples.maxOfOrNull { it.bpm } ?: 140).coerceAtLeast(160)
     val bpmRange = (maxBpm - minBpm).coerceAtLeast(40).toFloat()
 
     Card(
@@ -50,7 +46,6 @@ fun LiveHrChartCard(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            // Header Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -73,21 +68,20 @@ fun LiveHrChartCard(
                     Box(
                         modifier = Modifier
                             .size(10.dp)
-                            .background(activeZone.color, RoundedCornerShape(5.dp))
+                            .background(Color.Red, RoundedCornerShape(5.dp))
                     )
                     Spacer(modifier = Modifier.padding(horizontal = 4.dp))
                     Text(
-                        text = "${latestSample?.smoothedBpm ?: "--"} BPM",
+                        text = "${latestSample?.bpm ?: "--"} BPM",
                         fontWeight = FontWeight.ExtraBold,
                         style = MaterialTheme.typography.bodyLarge,
-                        color = activeZone.color
+                        color = Color.Red
                     )
                 }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Canvas Chart Area
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -99,23 +93,6 @@ fun LiveHrChartCard(
                     val width = size.width
                     val height = size.height
 
-                    // Draw Horizontal Zone Grid Lines (60, 100, 130, 155, 175)
-                    val zoneLines = listOf(60, 100, 130, 155, 175)
-                    val dashPathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 10f), 0f)
-
-                    zoneLines.forEach { zoneBpm ->
-                        if (zoneBpm in minBpm..maxBpm) {
-                            val y = height - ((zoneBpm - minBpm) / bpmRange * height)
-                            drawLine(
-                                color = Color.Gray.copy(alpha = 0.3f),
-                                start = Offset(0f, y),
-                                end = Offset(width, y),
-                                strokeWidth = 1f,
-                                pathEffect = dashPathEffect
-                            )
-                        }
-                    }
-
                     if (samples.size >= 2) {
                         val stepX = width / (samples.size - 1)
                         val strokePath = Path()
@@ -123,11 +100,10 @@ fun LiveHrChartCard(
 
                         val points = samples.mapIndexed { index, sample ->
                             val x = index * stepX
-                            val y = height - ((sample.smoothedBpm - minBpm) / bpmRange * height)
+                            val y = height - ((sample.bpm - minBpm) / bpmRange * height)
                             Offset(x, y)
                         }
 
-                        // Build path
                         strokePath.moveTo(points.first().x, points.first().y)
                         fillPath.moveTo(points.first().x, height)
                         fillPath.lineTo(points.first().x, points.first().y)
@@ -151,28 +127,25 @@ fun LiveHrChartCard(
                         fillPath.lineTo(points.last().x, height)
                         fillPath.close()
 
-                        // Gradient fill under the curve
                         drawPath(
                             path = fillPath,
                             brush = Brush.verticalGradient(
                                 colors = listOf(
-                                    activeZone.color.copy(alpha = 0.35f),
-                                    activeZone.color.copy(alpha = 0.02f)
+                                    Color.Red.copy(alpha = 0.35f),
+                                    Color.Red.copy(alpha = 0.02f)
                                 )
                             )
                         )
 
-                        // Main curve line
                         drawPath(
                             path = strokePath,
-                            color = activeZone.color,
+                            color = Color.Red,
                             style = Stroke(width = 3.dp.toPx())
                         )
 
-                        // Draw last point pulsing dot
                         val lastPoint = points.last()
                         drawCircle(
-                            color = activeZone.color,
+                            color = Color.Red,
                             radius = 6.dp.toPx(),
                             center = lastPoint
                         )
@@ -187,24 +160,23 @@ fun LiveHrChartCard(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Footer info: Min, Max, Avg BPM in the current window
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = "Min: ${samples.minOfOrNull { it.smoothedBpm } ?: "--"} BPM",
+                    text = "Min: ${samples.minOfOrNull { it.bpm } ?: "--"} BPM",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Text(
-                    text = "Avg: ${if (samples.isNotEmpty()) samples.map { it.smoothedBpm }.average().toInt() else "--"} BPM",
+                    text = "Avg: ${if (samples.isNotEmpty()) samples.map { it.bpm }.average().toInt() else "--"} BPM",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "Max: ${samples.maxOfOrNull { it.smoothedBpm } ?: "--"} BPM",
+                    text = "Max: ${samples.maxOfOrNull { it.bpm } ?: "--"} BPM",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

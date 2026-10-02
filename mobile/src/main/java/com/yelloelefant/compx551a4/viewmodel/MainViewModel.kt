@@ -4,17 +4,11 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.yelloelefant.compx551a4.data.AccDataPoint
-import com.yelloelefant.compx551a4.data.HrDataPoint
-import com.yelloelefant.compx551a4.data.SessionEntity
-import com.yelloelefant.compx551a4.data.SessionRepository
-import com.yelloelefant.compx551a4.data.TrendStats
-import com.yelloelefant.compx551a4.processing.LiveSessionStats
-import com.yelloelefant.compx551a4.processing.ProcessedAccSample
-import com.yelloelefant.compx551a4.processing.ProcessedHrSample
-import com.yelloelefant.compx551a4.processing.SignalProcessor
+import com.polar.sdk.api.model.PolarDeviceInfo
+import com.yelloelefant.compx551a4.sensor.AccSample
 import com.yelloelefant.compx551a4.sensor.ConnectionState
 import com.yelloelefant.compx551a4.sensor.HeartSensorSource
+import com.yelloelefant.compx551a4.sensor.HrSample
 import com.yelloelefant.compx551a4.sensor.MockPolarH10Source
 import com.yelloelefant.compx551a4.sensor.PolarH10Source
 import kotlinx.coroutines.Job
@@ -23,6 +17,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 enum class SensorSourceType(val displayName: String) {
     REAL_POLAR_H10("Polar H10 (Bluetooth)"),
@@ -30,14 +26,22 @@ enum class SensorSourceType(val displayName: String) {
 }
 
 enum class SessionRecordingState {
-    IDLE, RECORDING, PAUSED
+    IDLE, RECORDING
 }
+
+data class LiveStats(
+    val durationSeconds: Long = 0,
+    val sampleCount: Int = 0,
+    val avgBpm: Int = 0,
+    val minBpm: Int = 0,
+    val maxBpm: Int = 0,
+    val latestBpm: Int = 0,
+    val latestMagnitudeG: Double = 0.0
+)
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val prefs = application.getSharedPreferences("polar_prefs", Context.MODE_PRIVATE)
-    private val repository = SessionRepository(application)
-    private val signalProcessor = SignalProcessor()
 
     private val realPolarSource = PolarH10Source(application)
     private val mockPolarSource = MockPolarH10Source()
@@ -54,29 +58,20 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _recordingState = MutableStateFlow(SessionRecordingState.IDLE)
     val recordingState: StateFlow<SessionRecordingState> = _recordingState.asStateFlow()
 
-    private val _liveHrSample = MutableStateFlow<ProcessedHrSample?>(null)
-    val liveHrSample: StateFlow<ProcessedHrSample?> = _liveHrSample.asStateFlow()
+    private val _liveHrSample = MutableStateFlow<HrSample?>(null)
+    val liveHrSample: StateFlow<HrSample?> = _liveHrSample.asStateFlow()
 
-    private val _liveAccSample = MutableStateFlow<ProcessedAccSample?>(null)
-    val liveAccSample: StateFlow<ProcessedAccSample?> = _liveAccSample.asStateFlow()
+    private val _liveAccSample = MutableStateFlow<AccSample?>(null)
+    val liveAccSample: StateFlow<AccSample?> = _liveAccSample.asStateFlow()
 
-    private val _hrChartHistory = MutableStateFlow<List<ProcessedHrSample>>(emptyList())
-    val hrChartHistory: StateFlow<List<ProcessedHrSample>> = _hrChartHistory.asStateFlow()
+    private val _hrChartHistory = MutableStateFlow<List<HrSample>>(emptyList())
+    val hrChartHistory: StateFlow<List<HrSample>> = _hrChartHistory.asStateFlow()
 
-    private val _accChartHistory = MutableStateFlow<List<ProcessedAccSample>>(emptyList())
-    val accChartHistory: StateFlow<List<ProcessedAccSample>> = _accChartHistory.asStateFlow()
+    private val _accChartHistory = MutableStateFlow<List<AccSample>>(emptyList())
+    val accChartHistory: StateFlow<List<AccSample>> = _accChartHistory.asStateFlow()
 
-    private val _liveStats = MutableStateFlow(LiveSessionStats())
-    val liveStats: StateFlow<LiveSessionStats> = _liveStats.asStateFlow()
-
-    private val _sessionHistory = MutableStateFlow<List<SessionEntity>>(emptyList())
-    val sessionHistory: StateFlow<List<SessionEntity>> = _sessionHistory.asStateFlow()
-
-    private val _selectedSession = MutableStateFlow<SessionEntity?>(null)
-    val selectedSession: StateFlow<SessionEntity?> = _selectedSession.asStateFlow()
-
-    private val _trendStats = MutableStateFlow(TrendStats())
-    val trendStats: StateFlow<TrendStats> = _trendStats.asStateFlow()
+    private val _liveStats = MutableStateFlow(LiveStats())
+    val liveStats: StateFlow<LiveStats> = _liveStats.asStateFlow()
 
     private val _simulatorIntensity = MutableStateFlow(MockPolarH10Source.ExerciseIntensity.RESTING)
     val simulatorIntensity: StateFlow<MockPolarH10Source.ExerciseIntensity> = _simulatorIntensity.asStateFlow()
@@ -84,8 +79,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _isScanning = MutableStateFlow(false)
     val isScanning: StateFlow<Boolean> = _isScanning.asStateFlow()
 
-    private val _discoveredDevices = MutableStateFlow<List<com.polar.sdk.api.model.PolarDeviceInfo>>(emptyList())
-    val discoveredDevices: StateFlow<List<com.polar.sdk.api.model.PolarDeviceInfo>> = _discoveredDevices.asStateFlow()
+    private val _discoveredDevices = MutableStateFlow<List<PolarDeviceInfo>>(emptyList())
+    val discoveredDevices: StateFlow<List<PolarDeviceInfo>> = _discoveredDevices.asStateFlow()
 
     private var hrCollectJob: Job? = null
     private var accCollectJob: Job? = null
@@ -93,14 +88,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var timerJob: Job? = null
     private var connectionStateJob: Job? = null
 
-    // Session accumulation buffers
-    private val sessionHrBuffer = mutableListOf<ProcessedHrSample>()
-    private val sessionAccBuffer = mutableListOf<ProcessedAccSample>()
-    private var sessionStartTimeMs: Long = 0
+    private val sessionHrBuffer = mutableListOf<HrSample>()
+    private val sessionAccBuffer = mutableListOf<AccSample>()
     private var sessionElapsedTimeSec: Long = 0
 
     init {
-        loadSessionData()
         observeActiveSourceState()
     }
 
@@ -126,6 +118,23 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         disconnectDevice()
         _sensorSourceType.value = type
         observeActiveSourceState()
+    }
+
+    fun setDeviceId(id: String) {
+        val clean = id.uppercase().trim()
+        _deviceId.value = clean
+        prefs.edit().putString("device_id", clean).apply()
+    }
+
+    fun connectDevice() {
+        currentSource().connect(_deviceId.value)
+        startStreamCollection()
+    }
+
+    fun disconnectDevice() {
+        hrCollectJob?.cancel()
+        accCollectJob?.cancel()
+        currentSource().disconnect()
     }
 
     fun startDeviceScan() {
@@ -155,23 +164,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _isScanning.value = false
     }
 
-    fun setDeviceId(id: String) {
-        val clean = id.uppercase().trim()
-        _deviceId.value = clean
-        prefs.edit().putString("device_id", clean).apply()
-    }
-
-    fun connectDevice() {
-        currentSource().connect(_deviceId.value)
-        startStreamCollection()
-    }
-
-    fun disconnectDevice() {
-        hrCollectJob?.cancel()
-        accCollectJob?.cancel()
-        currentSource().disconnect()
-    }
-
     fun setSimulatorIntensity(intensity: MockPolarH10Source.ExerciseIntensity) {
         _simulatorIntensity.value = intensity
         mockPolarSource.simulateExerciseLevel(intensity)
@@ -181,18 +173,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         hrCollectJob?.cancel()
         hrCollectJob = viewModelScope.launch {
             currentSource().hrStream().collect { rawHr ->
-                val processed = signalProcessor.processHrSample(rawHr)
-                _liveHrSample.value = processed
+                _liveHrSample.value = rawHr
 
-                // Chart rolling buffer (60 items)
                 val currentHrList = _hrChartHistory.value.toMutableList()
-                currentHrList.add(processed)
+                currentHrList.add(rawHr)
                 if (currentHrList.size > 60) currentHrList.removeAt(0)
                 _hrChartHistory.value = currentHrList
 
                 if (_recordingState.value == SessionRecordingState.RECORDING) {
-                    sessionHrBuffer.add(processed)
-                    updateSessionStats()
+                    sessionHrBuffer.add(rawHr)
+                    updateStats()
                 }
             }
         }
@@ -200,45 +190,36 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         accCollectJob?.cancel()
         accCollectJob = viewModelScope.launch {
             currentSource().accStream().collect { rawAcc ->
-                val processed = signalProcessor.processAccSample(rawAcc)
-                _liveAccSample.value = processed
+                _liveAccSample.value = rawAcc
 
-                // Chart rolling buffer (80 items)
                 val currentAccList = _accChartHistory.value.toMutableList()
-                currentAccList.add(processed)
+                currentAccList.add(rawAcc)
                 if (currentAccList.size > 80) currentAccList.removeAt(0)
                 _accChartHistory.value = currentAccList
 
                 if (_recordingState.value == SessionRecordingState.RECORDING) {
-                    sessionAccBuffer.add(processed)
+                    sessionAccBuffer.add(rawAcc)
                 }
             }
         }
     }
 
-    fun startSession() {
+    fun startLiveSession() {
         if (_recordingState.value == SessionRecordingState.IDLE) {
             sessionHrBuffer.clear()
             sessionAccBuffer.clear()
-            sessionStartTimeMs = System.currentTimeMillis()
             sessionElapsedTimeSec = 0
             _recordingState.value = SessionRecordingState.RECORDING
             startTimer()
         }
     }
 
-    fun pauseSession() {
-        if (_recordingState.value == SessionRecordingState.RECORDING) {
-            _recordingState.value = SessionRecordingState.PAUSED
-            timerJob?.cancel()
-        }
-    }
-
-    fun resumeSession() {
-        if (_recordingState.value == SessionRecordingState.PAUSED) {
-            _recordingState.value = SessionRecordingState.RECORDING
-            startTimer()
-        }
+    fun stopLiveSession() {
+        _recordingState.value = SessionRecordingState.IDLE
+        timerJob?.cancel()
+        sessionHrBuffer.clear()
+        sessionAccBuffer.clear()
+        _liveStats.value = LiveStats()
     }
 
     private fun startTimer() {
@@ -247,115 +228,35 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             while (_recordingState.value == SessionRecordingState.RECORDING) {
                 delay(1000)
                 sessionElapsedTimeSec++
-                updateSessionStats()
+                updateStats()
             }
         }
     }
 
-    private fun updateSessionStats() {
-        val stats = signalProcessor.computeSessionStats(
-            hrSamples = sessionHrBuffer,
-            accSamples = sessionAccBuffer,
-            durationSeconds = sessionElapsedTimeSec
-        )
-        _liveStats.value = stats
-    }
+    private fun updateStats() {
+        if (sessionHrBuffer.isEmpty()) return
+        val bpms = sessionHrBuffer.map { it.bpm }
+        val latestAcc = sessionAccBuffer.lastOrNull()
+        val latestMag = if (latestAcc != null) {
+            sqrt(latestAcc.x.toDouble().pow(2) + latestAcc.y.toDouble().pow(2) + latestAcc.z.toDouble().pow(2)) / 1000.0
+        } else 1.0
 
-    fun stopAndSaveSession(title: String, notes: String) {
-        val endTimeMs = System.currentTimeMillis()
-        timerJob?.cancel()
-
-        val finalStats = signalProcessor.computeSessionStats(
-            hrSamples = sessionHrBuffer,
-            accSamples = sessionAccBuffer,
-            durationSeconds = sessionElapsedTimeSec
-        )
-
-        // Sample down HR and Acc series for compact historical charts
-        val hrPoints = sessionHrBuffer.mapIndexedNotNull { index, sample ->
-            if (index % 2 == 0) {
-                HrDataPoint(
-                    sec = (index * (sessionElapsedTimeSec.toDouble() / sessionHrBuffer.size.coerceAtLeast(1))).toInt(),
-                    bpm = sample.smoothedBpm,
-                    rmssd = sample.rmssd
-                )
-            } else null
-        }
-
-        val accPoints = sessionAccBuffer.mapIndexedNotNull { index, sample ->
-            if (index % 25 == 0) { // sample 2 per second from 50Hz stream
-                AccDataPoint(
-                    sec = (index / 50),
-                    magG = sample.magnitudeG
-                )
-            } else null
-        }
-
-        val sessionTitle = title.ifBlank { "Session ${System.currentTimeMillis() % 10000}" }
-
-        val entity = SessionEntity(
-            title = sessionTitle,
-            startTimeMs = sessionStartTimeMs,
-            endTimeMs = endTimeMs,
+        _liveStats.value = LiveStats(
             durationSeconds = sessionElapsedTimeSec,
-            avgBpm = finalStats.avgBpm,
-            minBpm = finalStats.minBpm,
-            maxBpm = finalStats.maxBpm,
-            avgRmssd = finalStats.avgRmssd,
-            maxMotionG = finalStats.maxMotionG,
-            eventCount = finalStats.eventCount,
-            zoneDistribution = finalStats.zonePercentages,
-            motionDistribution = finalStats.motionPercentages,
-            notes = notes,
-            hrSeries = hrPoints,
-            accSeries = accPoints
+            sampleCount = sessionHrBuffer.size,
+            avgBpm = bpms.average().toInt(),
+            minBpm = bpms.minOrNull() ?: 0,
+            maxBpm = bpms.maxOrNull() ?: 0,
+            latestBpm = bpms.last(),
+            latestMagnitudeG = latestMag
         )
-
-        viewModelScope.launch {
-            repository.saveSession(entity)
-            loadSessionData()
-        }
-
-        _recordingState.value = SessionRecordingState.IDLE
-        sessionHrBuffer.clear()
-        sessionAccBuffer.clear()
-        _liveStats.value = LiveSessionStats()
-    }
-
-    fun selectSession(session: SessionEntity?) {
-        _selectedSession.value = session
-    }
-
-    fun deleteSession(id: String) {
-        viewModelScope.launch {
-            repository.deleteSession(id)
-            if (_selectedSession.value?.id == id) {
-                _selectedSession.value = null
-            }
-            loadSessionData()
-        }
-    }
-
-    fun clearAllSessions() {
-        viewModelScope.launch {
-            repository.clearAll()
-            _selectedSession.value = null
-            loadSessionData()
-        }
-    }
-
-    private fun loadSessionData() {
-        viewModelScope.launch {
-            val list = repository.loadSessions()
-            _sessionHistory.value = list
-            _trendStats.value = repository.computeTrendStats(list)
-        }
     }
 
     override fun onCleared() {
         super.onCleared()
         hrCollectJob?.cancel()
         accCollectJob?.cancel()
+        scanJob?.cancel()
         timerJob?.cancel()
         connectionStateJob?.cancel()
         realPolarSource.shutdown()
