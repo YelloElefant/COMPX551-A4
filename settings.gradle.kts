@@ -25,4 +25,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "COMPX551-A4"
 include(":mobile")
-include(":wear")

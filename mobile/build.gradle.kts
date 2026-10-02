@@ -36,6 +36,11 @@ android {
 }
 
 dependencies {
+    implementation("com.github.polarofficial:polar-ble-sdk:5.5.0")
+    implementation("io.reactivex.rxjava3:rxjava:3.1.8")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-rx3:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactive:1.9.0")
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
