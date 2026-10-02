@@ -40,6 +40,18 @@ class PolarH10Source(context: Context) : HeartSensorSource {
     init {
         polar.setApiCallback(object : PolarBleApiCallback() {
 
+            override fun blePowerStateChanged(powered: Boolean) {
+                Log.d("H10", "Bluetooth Powered: $powered")
+                if (!powered) {
+                    connectionState.value = ConnectionState.Failed("Bluetooth is switched OFF on phone")
+                }
+            }
+
+            override fun deviceConnecting(polarDeviceInfo: PolarDeviceInfo) {
+                Log.d("H10", "Connecting to ${polarDeviceInfo.deviceId}")
+                connectionState.value = ConnectionState.Connecting(polarDeviceInfo.deviceId)
+            }
+
             override fun deviceConnected(polarDeviceInfo: PolarDeviceInfo) {
                 Log.d("H10", "Connected!")
                 connectionState.value = ConnectionState.Connected(polarDeviceInfo.deviceId)
@@ -63,7 +75,11 @@ class PolarH10Source(context: Context) : HeartSensorSource {
 
     // CONNECT TO THE STRAP
     override fun connect(deviceId: String) {
-        this.deviceId = deviceId.uppercase()
+        this.deviceId = deviceId.uppercase().trim()
+        if (this.deviceId.isBlank()) {
+            connectionState.value = ConnectionState.Failed("Please enter a valid 8-character Polar Device ID")
+            return
+        }
         connectionState.value = ConnectionState.Connecting(this.deviceId)
         try {
             polar.connectToDevice(this.deviceId)
@@ -78,6 +94,13 @@ class PolarH10Source(context: Context) : HeartSensorSource {
         } catch (e: Exception) {
             Log.d("H10", "Disconnect failed")
         }
+    }
+
+    /**
+     * Scans nearby Polar BLE devices.
+     */
+    fun searchForDevices(): Flow<PolarDeviceInfo> {
+        return polar.searchForDevice().asFlow()
     }
 
 
