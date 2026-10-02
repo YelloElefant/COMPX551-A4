@@ -42,8 +42,8 @@ import com.yelloelefant.compx551a4.ui.components.BluetoothPermissionHandler
 import com.yelloelefant.compx551a4.ui.components.LiveAccChartCard
 import com.yelloelefant.compx551a4.ui.components.LiveHrChartCard
 import com.yelloelefant.compx551a4.ui.components.PulsingHeartCard
-import com.yelloelefant.compx551a4.viewmodel.MainViewModel
 import com.yelloelefant.compx551a4.ui.components.SessionControlsCard
+import com.yelloelefant.compx551a4.viewmodel.MainViewModel
 
 @Composable
 fun DashboardScreen(
@@ -54,10 +54,10 @@ fun DashboardScreen(
     val heartRateData by viewModel.heartRateData.collectAsState()
     val hrChartHistory by viewModel.hrChartHistory.collectAsState()
     val accChartHistory by viewModel.accChartHistory.collectAsState()
-    val isScanning by viewModel.isScanning.collectAsState()
-    val discoveredDevices by viewModel.discoveredDevices.collectAsState()
     val recordingState by viewModel.recordingState.collectAsState()
     val liveStats by viewModel.liveStats.collectAsState()
+    val isScanning by viewModel.isScanning.collectAsState()
+    val discoveredDevices by viewModel.discoveredDevices.collectAsState()
 
     var deviceIdInput by remember { mutableStateOf("C6230415") }
 
@@ -171,12 +171,15 @@ fun DashboardScreen(
                     }
                 }
             }
+
+            // Session Controls Card (Start / Stop & Save Session to file)
             SessionControlsCard(
                 recordingState = recordingState,
                 liveStats = liveStats,
                 onStart = { viewModel.startLiveSession() },
-                onStop = { viewModel.stopLiveSession() }
+                onStopAndSave = { title, notes -> viewModel.stopAndSaveSession(title, notes) }
             )
+
             // Live Vitals
             PulsingHeartCard(heartRateData = heartRateData, isConnected = isConnected)
 

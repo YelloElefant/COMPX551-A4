@@ -11,14 +11,21 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Stop
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,9 +41,13 @@ fun SessionControlsCard(
     recordingState: SessionRecordingState,
     liveStats: LiveStats,
     onStart: () -> Unit,
-    onStop: () -> Unit,
+    onStopAndSave: (title: String, notes: String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    var showSaveDialog by remember { mutableStateOf(false) }
+    var sessionTitle by remember { mutableStateOf("") }
+    var sessionNotes by remember { mutableStateOf("") }
+
     val durationText = formatDuration(liveStats.durationSeconds)
 
     Card(
@@ -61,7 +72,7 @@ fun SessionControlsCard(
                 color = MaterialTheme.colorScheme.onSurface
             )
             Text(
-                text = if (recordingState == SessionRecordingState.RECORDING) "● Live Data Capture Active" else "Capture Ready",
+                text = if (recordingState == SessionRecordingState.RECORDING) "● Recording Session & Saving Data..." else "Session Recorder Ready",
                 style = MaterialTheme.typography.bodyMedium,
                 color = if (recordingState == SessionRecordingState.RECORDING) Color(0xFF2E7D32) else MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -81,57 +92,70 @@ fun SessionControlsCard(
                     ) {
                         Icon(Icons.Default.PlayArrow, contentDescription = "Start")
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("Start Live Capture", fontWeight = FontWeight.Bold)
+                        Text("Start Session Capture", fontWeight = FontWeight.Bold)
                     }
                 } else {
                     Button(
-                        onClick = onStop,
+                        onClick = { showSaveDialog = true },
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD32F2F)),
                         modifier = Modifier.fillMaxWidth(0.8f)
                     ) {
                         Icon(Icons.Default.Stop, contentDescription = "Stop")
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("Stop Live Capture", fontWeight = FontWeight.Bold)
+                        Text("Stop & Save Session", fontWeight = FontWeight.Bold)
                     }
                 }
             }
-            if (liveStats.sampleCount > 0) {
-
-                Spacer(modifier = Modifier.height(20.dp))
-
-                Text(
-                    text = "Processed Session Statistics",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold
-                )
-
-                Spacer(modifier = Modifier.height(12.dp))
-
-                Text(
-                    text = "Smoothed HR: ${liveStats.latestBpm} BPM",
-                    fontWeight = FontWeight.Bold
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    Text("Min: ${liveStats.minBpm}")
-                    Text("Avg: ${liveStats.avgBpm}")
-                    Text("Max: ${liveStats.maxBpm}")
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text(
-                    text = "Samples processed: ${liveStats.sampleCount}",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
         }
+    }
+
+    // Save Session Dialog
+    if (showSaveDialog) {
+        AlertDialog(
+            onDismissRequest = { showSaveDialog = false },
+            title = { Text("Save Captured Session") },
+            text = {
+                Column {
+                    Text(
+                        text = "Duration: $durationText | Samples: ${liveStats.sampleCount} | Avg HR: ${liveStats.avgBpm} BPM",
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Spacer(modifier = Modifier.height(12.dp))
+                    OutlinedTextField(
+                        value = sessionTitle,
+                        onValueChange = { sessionTitle = it },
+                        label = { Text("Session Title (e.g. Cardio Run)") },
+                        modifier = Modifier.fillMaxWidth(),
+                        singleLine = true
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    OutlinedTextField(
+                        value = sessionNotes,
+                        onValueChange = { sessionNotes = it },
+                        label = { Text("Notes / Observations") },
+                        modifier = Modifier.fillMaxWidth(),
+                        maxLines = 3
+                    )
+                }
+            },
+            confirmButton = {
+                Button(
+                    onClick = {
+                        showSaveDialog = false
+                        onStopAndSave(sessionTitle, sessionNotes)
+                        sessionTitle = ""
+                        sessionNotes = ""
+                    }
+                ) {
+                    Text("Save to File")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showSaveDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
     }
 }
 
