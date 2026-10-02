@@ -19,9 +19,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
 rootProject.name = "COMPX551-A4"
 include(":mobile")
-include(":wear")
