@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import com.polar.sdk.api.model.PolarDeviceInfo
 import com.yelloelefant.compx551a4.data.AccelerometerData
-import com.yelloelefant.compx551a4.data.AppConfig
 import com.yelloelefant.compx551a4.data.HeartRateData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,10 +14,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-/**
- * Manages connection lifecycle and sensor data streams from the physical Polar H10 chest strap
- * via [PolarH10Source], or falls back to [MockPolarProvider] when [AppConfig.USE_MOCK_DATA] is enabled.
- */
 class PolarSensorManager(val context: Context) {
 
     private val tag = "PolarSensorManager"
@@ -37,55 +32,24 @@ class PolarSensorManager(val context: Context) {
     private val realPolarSource = PolarH10Source(context)
 
     init {
-        Log.d(tag, "PolarSensorManager initialized. Mock mode: ${AppConfig.USE_MOCK_DATA}")
+        Log.d(tag, "PolarSensorManager initialized for live Bluetooth sensor.")
     }
 
-    /**
-     * Connects to the physical Polar H10 device or starts mock streaming.
-     */
-    fun connect(deviceId: String = "C38E221A") {
-        Log.d(tag, "Connecting sensor (Mock mode: ${AppConfig.USE_MOCK_DATA}, DeviceId: $deviceId)")
+    fun connect(deviceId: String = "C6230415") {
+        Log.d(tag, "Connecting to physical Polar H10 device: $deviceId")
         _isConnected.value = true
-        if (AppConfig.USE_MOCK_DATA) {
-            startMockStreaming()
-        } else {
-            startRealPolarStreaming(deviceId)
-        }
+        startRealPolarStreaming(deviceId)
     }
 
-    /**
-     * Disconnects from the sensor device and halts streaming.
-     */
     fun disconnect(deviceId: String = "") {
         Log.d(tag, "Disconnecting sensor")
         _isConnected.value = false
-        if (!AppConfig.USE_MOCK_DATA) {
-            realPolarSource.disconnect()
-        }
+        realPolarSource.disconnect()
         stopStreaming()
     }
 
-    /**
-     * Scans nearby Polar BLE devices.
-     */
     fun searchForDevices(): Flow<PolarDeviceInfo> {
         return realPolarSource.searchForDevices()
-    }
-
-    private fun startMockStreaming() {
-        streamJob?.cancel()
-        streamJob = scope.launch {
-            launch {
-                MockPolarProvider.heartRateStream().collect { hr ->
-                    _heartRateData.value = hr
-                }
-            }
-            launch {
-                MockPolarProvider.accelerometerStream().collect { acc ->
-                    _accelerometerData.value = acc
-                }
-            }
-        }
     }
 
     private fun startRealPolarStreaming(deviceId: String) {

@@ -1,5 +1,4 @@
 package com.yelloelefant.compx551a4.ui.components
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

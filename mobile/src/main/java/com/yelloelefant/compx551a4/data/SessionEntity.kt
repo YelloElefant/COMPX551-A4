@@ -3,26 +3,33 @@ package com.yelloelefant.compx551a4.data
 import java.util.UUID
 
 data class HrDataPoint(
-    val sec: Int,
-    val bpm: Int
+    val sec: Int = 0,
+    val bpm: Int = 0
 )
 
 data class AccDataPoint(
-    val sec: Int,
-    val magG: Double
+    val sec: Int = 0,
+    val magG: Double = 0.0
+)
+
+data class HrEventPoint(
+    val sec: Int = 0,
+    val bpm: Int = 0,
+    val label: String = "High HR Alert"
 )
 
 data class SessionEntity(
     val id: String = UUID.randomUUID().toString(),
-    val title: String,
-    val startTimeMs: Long,
-    val endTimeMs: Long,
-    val durationSeconds: Long,
-    val avgBpm: Int,
-    val minBpm: Int,
-    val maxBpm: Int,
-    val sampleCount: Int,
+    val title: String = "Workout Session",
+    val startTimeMs: Long = 0L,
+    val endTimeMs: Long = 0L,
+    val durationSeconds: Long = 0L,
+    val avgBpm: Int = 0,
+    val minBpm: Int = 0,
+    val maxBpm: Int = 0,
+    val sampleCount: Int = 0,
     val notes: String = "",
     val hrSeries: List<HrDataPoint> = emptyList(),
-    val accSeries: List<AccDataPoint> = emptyList()
+    val accSeries: List<AccDataPoint> = emptyList(),
+    val hrEvents: List<HrEventPoint> = emptyList()
 )

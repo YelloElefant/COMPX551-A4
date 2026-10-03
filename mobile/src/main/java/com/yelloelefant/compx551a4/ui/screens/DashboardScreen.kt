@@ -37,7 +37,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.yelloelefant.compx551a4.data.AppConfig
 import com.yelloelefant.compx551a4.ui.components.BluetoothPermissionHandler
 import com.yelloelefant.compx551a4.ui.components.LiveAccChartCard
 import com.yelloelefant.compx551a4.ui.components.LiveHrChartCard
@@ -79,13 +78,13 @@ fun DashboardScreen(
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     Text(
-                        text = "Polar H10 Connection & BLE Scanner",
+                        text = "Polar H10 Live Bluetooth Connection",
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "Mode: ${if (AppConfig.USE_MOCK_DATA) "Mock Data" else "Live Bluetooth Sensor"} | Status: ${if (isConnected) "Connected" else "Disconnected"}",
+                        text = "Status: ${if (isConnected) "Connected to Polar H10" else "Disconnected"}",
                         style = MaterialTheme.typography.bodySmall,
                         color = if (isConnected) Color(0xFF2E7D32) else MaterialTheme.colorScheme.onSurfaceVariant
                     )

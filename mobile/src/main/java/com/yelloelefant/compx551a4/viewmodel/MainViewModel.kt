@@ -8,6 +8,7 @@ import com.yelloelefant.compx551a4.data.AccDataPoint
 import com.yelloelefant.compx551a4.data.AccelerometerData
 import com.yelloelefant.compx551a4.data.HeartRateData
 import com.yelloelefant.compx551a4.data.HrDataPoint
+import com.yelloelefant.compx551a4.data.HrEventPoint
 import com.yelloelefant.compx551a4.data.SessionEntity
 import com.yelloelefant.compx551a4.data.SessionRepository
 import com.yelloelefant.compx551a4.sensor.PolarSensorManager
@@ -69,6 +70,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val sessionHrBuffer = mutableListOf<HeartRateData>()
     private val sessionAccBuffer = mutableListOf<AccelerometerData>()
+    private val sessionEventBuffer = mutableListOf<HrEventPoint>()
     private var sessionStartTimeMs: Long = 0
     private var sessionElapsedTimeSec: Long = 0
 
@@ -85,6 +87,20 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                     if (_recordingState.value == SessionRecordingState.RECORDING) {
                         sessionHrBuffer.add(hr)
+
+                        // High HR Event detection (> 150 BPM)
+                        if (hr.bpm > 150) {
+                            val lastEventSec = sessionEventBuffer.lastOrNull()?.sec ?: -10
+                            if (sessionElapsedTimeSec.toInt() - lastEventSec > 5) {
+                                sessionEventBuffer.add(
+                                    HrEventPoint(
+                                        sec = sessionElapsedTimeSec.toInt(),
+                                        bpm = hr.bpm,
+                                        label = "High HR Alert (${hr.bpm} BPM)"
+                                    )
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -144,6 +160,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         if (_recordingState.value == SessionRecordingState.IDLE) {
             sessionHrBuffer.clear()
             sessionAccBuffer.clear()
+            sessionEventBuffer.clear()
             sessionStartTimeMs = System.currentTimeMillis()
             sessionElapsedTimeSec = 0
             _recordingState.value = SessionRecordingState.RECORDING
@@ -153,7 +170,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun stopAndSaveSession(title: String, notes: String) {
         timerJob?.cancel()
-        val endTimeMs = System.currentTimeMillis()
 
         val bpms = sessionHrBuffer.map { it.bpm }
         val avgBpm = if (bpms.isNotEmpty()) bpms.average().toInt() else 0
@@ -162,7 +178,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
         val sessionTitle = title.ifBlank { "Workout Session ${System.currentTimeMillis() % 10000}" }
 
-        // Sample down accelerometer series (50Hz -> 2 samples per second)
         val accPoints = sessionAccBuffer.mapIndexedNotNull { index, sample ->
             if (index % 25 == 0) {
                 val mag = sqrt(sample.x.toDouble().pow(2) + sample.y.toDouble().pow(2) + sample.z.toDouble().pow(2))
@@ -183,7 +198,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         val entity = SessionEntity(
             title = sessionTitle,
             startTimeMs = sessionStartTimeMs,
-            endTimeMs = endTimeMs,
+            endTimeMs = System.currentTimeMillis(),
             durationSeconds = sessionElapsedTimeSec,
             avgBpm = avgBpm,
             minBpm = minBpm,
@@ -191,7 +206,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             sampleCount = sessionHrBuffer.size,
             notes = notes,
             hrSeries = hrPoints,
-            accSeries = accPoints
+            accSeries = accPoints,
+            hrEvents = sessionEventBuffer.toList()
         )
 
         viewModelScope.launch {
@@ -202,6 +218,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _recordingState.value = SessionRecordingState.IDLE
         sessionHrBuffer.clear()
         sessionAccBuffer.clear()
+        sessionEventBuffer.clear()
         _liveStats.value = LiveStats()
     }
 
