@@ -35,6 +35,14 @@ fun LiveHrChartCard(
 ) {
     val samples = hrHistory.takeLast(60)
     val latestSample = samples.lastOrNull()
+    val latestBpm = latestSample?.bpm ?: 0
+
+    // Green if between 80 and 120, Red otherwise
+    val chartColor = if (latestBpm in 80..120) {
+        Color(0xFF4CAF50) // Green
+    } else {
+        Color(0xFFF44336) // Red
+    }
 
     val minBpm = (samples.minOfOrNull { it.bpm } ?: 60).coerceAtMost(50)
     val maxBpm = (samples.maxOfOrNull { it.bpm } ?: 140).coerceAtLeast(160)
@@ -58,7 +66,7 @@ fun LiveHrChartCard(
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "Real-time 60s window • Polar H10",
+                        text = "Green: 80-120 BPM • Red: Outside range",
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -68,14 +76,14 @@ fun LiveHrChartCard(
                     Box(
                         modifier = Modifier
                             .size(10.dp)
-                            .background(Color.Red, RoundedCornerShape(5.dp))
+                            .background(chartColor, RoundedCornerShape(5.dp))
                     )
                     Spacer(modifier = Modifier.padding(horizontal = 4.dp))
                     Text(
-                        text = "${latestSample?.bpm ?: "--"} BPM",
+                        text = "${if (latestBpm > 0) latestBpm else "--"} BPM",
                         fontWeight = FontWeight.ExtraBold,
                         style = MaterialTheme.typography.bodyLarge,
-                        color = Color.Red
+                        color = chartColor
                     )
                 }
             }
@@ -131,21 +139,21 @@ fun LiveHrChartCard(
                             path = fillPath,
                             brush = Brush.verticalGradient(
                                 colors = listOf(
-                                    Color.Red.copy(alpha = 0.35f),
-                                    Color.Red.copy(alpha = 0.02f)
+                                    chartColor.copy(alpha = 0.35f),
+                                    chartColor.copy(alpha = 0.02f)
                                 )
                             )
                         )
 
                         drawPath(
                             path = strokePath,
-                            color = Color.Red,
+                            color = chartColor,
                             style = Stroke(width = 3.dp.toPx())
                         )
 
                         val lastPoint = points.last()
                         drawCircle(
-                            color = Color.Red,
+                            color = chartColor,
                             radius = 6.dp.toPx(),
                             center = lastPoint
                         )
