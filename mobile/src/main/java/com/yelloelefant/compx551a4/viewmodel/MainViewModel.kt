@@ -32,7 +32,8 @@ data class LiveStats(
     val minBpm: Int = 0,
     val maxBpm: Int = 0,
     val latestBpm: Int = 0,
-    val latestMagnitudeG: Double = 0.0
+    val latestMagnitudeG: Double = 0.0,
+    val currentContextAlert: String = "Normal"
 )
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
@@ -85,18 +86,38 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     if (currentList.size > 60) currentList.removeAt(0)
                     _hrChartHistory.value = currentList
 
+                    // Real-time context evaluation (Exercise vs Stress)
+                    val latestAcc = sessionAccBuffer.lastOrNull() ?: _accChartHistory.value.lastOrNull()
+                    val mag = if (latestAcc != null) {
+                        sqrt(latestAcc.x.toDouble().pow(2) + latestAcc.y.toDouble().pow(2) + latestAcc.z.toDouble().pow(2))
+                    } else 1.0
+                    val isMoving = mag >= 1.25
+
+                    val contextAlert = if (hr.bpm > 135) {
+                        if (isMoving) "💪 Exercise (High HR + Movement)" else "⚠️ Stress Alert (High HR while Still)"
+                    } else {
+                        "Normal"
+                    }
+
+                    _liveStats.value = _liveStats.value.copy(currentContextAlert = contextAlert)
+
                     if (_recordingState.value == SessionRecordingState.RECORDING) {
                         sessionHrBuffer.add(hr)
 
-                        // High HR Event detection (> 150 BPM)
-                        if (hr.bpm > 150) {
+                        // Sensor Fusion Event Detection (> 135 BPM)
+                        if (hr.bpm > 135) {
                             val lastEventSec = sessionEventBuffer.lastOrNull()?.sec ?: -10
                             if (sessionElapsedTimeSec.toInt() - lastEventSec > 5) {
+                                val label = if (isMoving) {
+                                    "Exercise (${hr.bpm} BPM)"
+                                } else {
+                                    "⚠️ Stress / Rest HR Alert (${hr.bpm} BPM)"
+                                }
                                 sessionEventBuffer.add(
                                     HrEventPoint(
                                         sec = sessionElapsedTimeSec.toInt(),
                                         bpm = hr.bpm,
-                                        label = "High HR Alert (${hr.bpm} BPM)"
+                                        label = label
                                     )
                                 )
                             }
@@ -241,7 +262,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     sqrt(latestAcc.x.toDouble().pow(2) + latestAcc.y.toDouble().pow(2) + latestAcc.z.toDouble().pow(2))
                 } else 1.0
 
-                _liveStats.value = LiveStats(
+                _liveStats.value = _liveStats.value.copy(
                     durationSeconds = sessionElapsedTimeSec,
                     sampleCount = sessionHrBuffer.size,
                     avgBpm = if (bpms.isNotEmpty()) bpms.average().toInt() else 0,

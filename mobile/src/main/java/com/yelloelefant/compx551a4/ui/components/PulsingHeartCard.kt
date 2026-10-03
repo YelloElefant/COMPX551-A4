@@ -21,6 +21,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -41,6 +42,7 @@ import com.yelloelefant.compx551a4.data.HeartRateData
 fun PulsingHeartCard(
     heartRateData: HeartRateData?,
     isConnected: Boolean,
+    contextAlert: String = "Normal",
     modifier: Modifier = Modifier,
 ) {
     val bpm = heartRateData?.bpm ?: 0
@@ -58,6 +60,9 @@ fun PulsingHeartCard(
         ),
         label = "scale"
     )
+
+    val isStressAlert = contextAlert.contains("Stress")
+    val isExercise = contextAlert.contains("Exercise")
 
     Card(
         modifier = modifier.fillMaxWidth(),
@@ -132,6 +137,34 @@ fun PulsingHeartCard(
                         text = "BPM (Polar H10)",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+
+            // Context-Aware Alert Banner (Exercise vs Stress)
+            if (isStressAlert || isExercise) {
+                Spacer(modifier = Modifier.height(12.dp))
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            if (isStressAlert) Color(0xFFFFEBEE) else Color(0xFFE8F5E9),
+                            RoundedCornerShape(8.dp)
+                        )
+                        .padding(10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Warning,
+                        contentDescription = null,
+                        tint = if (isStressAlert) Color(0xFFD32F2F) else Color(0xFF2E7D32)
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = contextAlert,
+                        color = if (isStressAlert) Color(0xFFD32F2F) else Color(0xFF2E7D32),
+                        style = MaterialTheme.typography.labelMedium,
+                        fontWeight = FontWeight.Bold
                     )
                 }
             }

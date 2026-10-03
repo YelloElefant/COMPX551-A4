@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import com.yelloelefant.compx551a4.ui.components.BluetoothPermissionHandler
 import com.yelloelefant.compx551a4.ui.components.LiveAccChartCard
 import com.yelloelefant.compx551a4.ui.components.LiveHrChartCard
+import com.yelloelefant.compx551a4.ui.components.MovementLevelCard
 import com.yelloelefant.compx551a4.ui.components.PulsingHeartCard
 import com.yelloelefant.compx551a4.ui.components.SessionControlsCard
 import com.yelloelefant.compx551a4.viewmodel.MainViewModel
@@ -180,11 +181,18 @@ fun DashboardScreen(
             )
 
             // Live Vitals
-            PulsingHeartCard(heartRateData = heartRateData, isConnected = isConnected)
+            PulsingHeartCard(
+                heartRateData = heartRateData,
+                isConnected = isConnected,
+                contextAlert = liveStats.currentContextAlert
+            )
 
             LiveHrChartCard(hrHistory = hrChartHistory)
 
             LiveAccChartCard(accHistory = accChartHistory)
+
+            // Movement Level & Intensity Chart Card
+            MovementLevelCard(accHistory = accChartHistory)
 
             Spacer(modifier = Modifier.height(24.dp))
         }

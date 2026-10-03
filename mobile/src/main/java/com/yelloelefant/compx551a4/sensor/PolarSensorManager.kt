@@ -5,6 +5,7 @@ import android.util.Log
 import com.polar.sdk.api.model.PolarDeviceInfo
 import com.yelloelefant.compx551a4.data.AccelerometerData
 import com.yelloelefant.compx551a4.data.HeartRateData
+import com.yelloelefant.compx551a4.processing.LowPassFilter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -71,12 +72,18 @@ class PolarSensorManager(val context: Context) {
             }
             launch {
                 try {
+                    val accFilter = LowPassFilter(0.2f)
                     realPolarSource.accStream().collect { sample ->
+                        val (smoothedX, smoothedY, smoothedZ) = accFilter.filter(
+                            sample.x / 1000f,
+                            sample.y / 1000f,
+                            sample.z / 1000f
+                        )
                         _accelerometerData.value = AccelerometerData(
                             timestamp = System.currentTimeMillis(),
-                            x = sample.x / 1000f,
-                            y = sample.y / 1000f,
-                            z = sample.z / 1000f
+                            x = smoothedX,
+                            y = smoothedY,
+                            z = smoothedZ
                         )
                     }
                 } catch (e: Exception) {
